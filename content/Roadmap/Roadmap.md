@@ -16,14 +16,13 @@ This roadmap provides a structured path through LLM security research, from foun
 ## Structure
 
 ### **Weeks 1-2: Foundations**
-- [[week-01-threat-landscape|Week 1: Threat Landscape]]
-- [[week-02-alignment-mechanisms|Week 2: Alignment Mechanisms]]
+- [[1.Threat Landscape]]
 
 Core surveys, taxonomies, and alignment basics (RLHF, Constitutional AI, DPO).
 
 ### **Weeks 3-4: Core Attacks**
-- [[week-03-jailbreaking|Week 3: Jailbreaking]]
-- [[week-04-automated-attacks|Week 4: Automated Attacks]]
+- [[2.Jailbreaking]]
+- [[3.Automated Attacks]]
 
 Manual and automated prompt injection techniques (PAIR, TAP, AutoDAN).
 
@@ -34,14 +33,13 @@ Manual and automated prompt injection techniques (PAIR, TAP, AutoDAN).
 Agent vulnerabilities, RAG injection, vision-language attacks.
 
 ### **Weeks 7-8: Specialized Attacks**
-- [[week-07-privacy-extraction|Week 7: Privacy & Extraction]]
-- [[week-08-domain-applications|Week 8: Domain Applications]]
+- [[4.Domain]]
+- [[5.Defense]]
 
 Model extraction, privacy attacks, healthcare/cybersecurity domains.
 
 ### **Weeks 9-10: Defense & Practice**
-- [[week-09-defense-mechanisms|Week 9: Defense Mechanisms]]
-- [[week-10-red-teaming|Week 10: Red Teaming]]
+- [[6.Redteam]]
 
 Guardrails, detection methods, practical red teaming frameworks.
 
@@ -78,7 +76,7 @@ Guardrails, detection methods, practical red teaming frameworks.
 
 ### Attack Types
 - [[prompt-injection|Prompt Injection]] - Direct and indirect manipulation
-- [[jailbreaking|Jailbreaking]] - Safety bypass techniques
+- [[2.Jailbreaking|Jailbreaking]] - Safety bypass techniques
 - [[adversarial-attacks|Adversarial Attacks]] - Input perturbations
 - [[data-poisoning|Data Poisoning]] - Training-time threats
 - [[model-extraction|Model Extraction]] - IP and privacy theft
