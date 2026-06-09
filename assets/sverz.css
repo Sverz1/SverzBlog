@@ -543,6 +543,9 @@ html[data-theme="light"] .kb-status{
 }
 /* SECTION keys (W/N/C/T/R/A/etc) — orange legend color + glow on hover */
 .kc[data-section] .legend-wrap{color:var(--accent)}
+/* Esc is both data-accent + data-section: force black legend in both themes
+   so the label reads against the orange/teal cap. */
+.kc[data-key="Escape"] .legend-wrap{color:#000}
 .kc[data-section]::after{
   content:"";position:absolute;inset:-3px;border-radius:calc(var(--key-radius) + 4px);
   box-shadow:0 0 0 1px var(--kb-accent-mid), 0 0 16px var(--kb-glow);
