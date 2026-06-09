@@ -1,0 +1,16 @@
+{
+  "name": "sverzblog",
+  "version": "1.0.0",
+  "description": "Offensive-security notebook rebuilt as an interactive 75% keyboard. Press a letter on the keyboard (W / E / N / C / R / T / A) to open a section as a draggable, resizable terminal window.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  }
+}

@@ -1,0 +1,21 @@
+# Local dev / build artifacts
+__pycache__/
+*.pyc
+node_modules/
+.editor-trash/
+
+# Editor / tooling
+.obsidian/
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Local logs / sessions
+.claude-bash.log
+session-state/
+screenshots/
+
+# OS / scratch
+*.log
+*.tmp

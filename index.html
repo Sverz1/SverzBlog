@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"/>
+<title>sverz1 // SverzBlog — offensive security notebook</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/sverz.css?v=22b8d9a4"/>
+<!-- Scripts in <head> with defer: download in parallel with HTML parse,
+     execute (in order) after DOM ready. Keeps FCP off the JS critical path. -->
+<script defer src="assets/data.js?v=22b8d9a4"></script>
+<script defer src="assets/keyboard.js?v=22b8d9a4"></script>
+<script defer src="assets/rgb.js?v=22b8d9a4"></script>
+<script defer src="assets/windows.js?v=22b8d9a4"></script>
+<script defer src="assets/app.js?v=22b8d9a4"></script>
+</head>
+<body>
+
+<!-- ===================== WHOAMI · FIXED BACKGROUND ===================== -->
+<main id="whoami" class="whoami" aria-label="whoami">
+  <div class="wrap">
+    <div class="signal">
+      <span class="sig-dot"></span>
+      <span>sverz1<span class="at">@</span>box</span>
+      <span class="sep">·</span>
+      <span>offsec notebook</span>
+      <span class="sep">·</span>
+      <span>build <b id="buildHash">local</b></span>
+    </div>
+
+    <h1 class="title">
+      I break things <em>on purpose</em>
+      <span class="caret"></span>
+    </h1>
+
+    <p class="lede">
+      Offensive security notebook by <b>sverz1</b>. HTB walkthroughs, per-service enumeration
+      checklists, cheatsheets, and the personal tooling that comes out of it. Everything here is
+      from authorised labs (HTB, OSCP, homelab).
+    </p>
+
+    <dl class="meta-grid" id="metaGrid">
+      <div><dt>focus</dt><dd>web · ad · linux/win</dd></div>
+      <div><dt>writeups</dt><dd id="cWriteups">—</dd></div>
+      <div><dt>enum</dt><dd id="cEnum">—</dd></div>
+      <div><dt>notes</dt><dd id="cNotes">—</dd></div>
+      <div><dt>cheats</dt><dd id="cCheats">—</dd></div>
+      <div><dt>theory</dt><dd id="cFundamentals">—</dd></div>
+    </dl>
+
+    <div class="scroll-cue" id="scrollCue">
+      <span class="cue-label">scroll to unlock</span>
+      <span class="cue-kbd">▼</span>
+      <span class="cue-hint">( or press any key )</span>
+    </div>
+
+    <div class="terminal-shelf">
+<pre class="term-mini">
+<span class="dim">$</span> whoami
+<span class="accent">sverz1</span>
+<span class="dim">$</span> cat /etc/motd
+<span class="dim"># there is no patch for curiosity</span>
+<span class="dim">$</span> ls ~/</pre>
+    </div>
+  </div>
+</main>
+
+<!-- ===================== KEYBOARD · SCROLL-DRIVEN OVERLAY ===================== -->
+<div id="keyboard-stage" class="kb-stage" aria-hidden="true">
+  <div class="kb-stage-inner">
+
+    <!-- Status row · 3 columns: how-to │ knob hint │ shortcuts -->
+    <div class="kb-status">
+      <span class="kbs-col kbs-how">
+        <span class="kbs-dot"></span>
+        <span class="kbs-label">press a key</span>
+        <span class="kbs-sep">·</span>
+        <span class="kbs-dim">each keycap opens a section</span>
+      </span>
+      <span class="kbs-col kbs-mid">
+        <span class="kbs-knob-ico" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round">
+            <circle cx="6" cy="6" r="4.5"/>
+            <path d="M6 1.5 v1.6"/>
+          </svg>
+        </span>
+        <span class="kbs-label">click the knob</span>
+        <span class="kbs-sep">·</span>
+        <span class="kbs-dim">toggle 75% ↔ ultrawide 100%</span>
+      </span>
+      <span class="kbs-col kbs-keys">
+        <span class="kbs-kbd-group" title="search"><kbd class="kc-hint">Ctrl</kbd><span class="kbs-plus">+</span><kbd class="kc-hint">F</kbd></span>
+        <span class="kbs-sep">·</span>
+        <span class="kbs-kbd-group" title="palette"><kbd class="kc-hint">⌘</kbd><span class="kbs-plus">+</span><kbd class="kc-hint">K</kbd></span>
+        <span class="kbs-sep">·</span>
+        <span class="kbs-kbd-group" title="help"><kbd class="kc-hint">?</kbd></span>
+      </span>
+    </div>
+
+    <!-- The keyboard itself -->
+    <div id="keyboard" class="kb" data-layout="75">
+      <!-- keys injected by JS -->
+    </div>
+
+    <!-- USB-C "tail" behind the chassis -->
+    <div class="kb-usb" aria-hidden="true">
+      <div class="kb-cable"></div>
+      <div class="kb-plug">USB-C</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== WINDOW LAYER (terminals on top of everything) ===================== -->
+<div id="window-layer" class="win-layer" aria-label="open windows"></div>
+
+<!-- ===================== TOOLBAR (top-right HUD) ===================== -->
+<div id="toolbar" class="toolbar">
+  <button class="tb" id="tbTheme" title="theme (⇧T)">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+  </button>
+  <button class="tb" id="tbCloseAll" title="close all windows (Esc Esc)">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <button class="tb" id="tbHelp" title="help (?)">?</button>
+</div>
+
+<!-- ===================== EASTER-EGG LOG ===================== -->
+<div id="egg-log" class="egg-log" aria-live="polite"></div>
+
+</body>
+</html>
