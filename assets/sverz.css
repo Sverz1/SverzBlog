@@ -609,27 +609,6 @@ html[data-theme="light"] .kb-status{
 .kc .kc-tip .kc-shortcut{color:var(--fg-4);margin-left:8px}
 .kc:hover .kc-tip{opacity:1;transform:translateX(-50%) translateY(0);transition-delay:.3s}
 
-/* ========== USB-C cable ========== */
-.kb-usb{
-  position:absolute;top:calc(50% - 8px);left:calc(50% - 4px);
-  width:2px;height:140px;z-index:-1;
-  transform:translate(-50%, -100%);
-}
-.kb-cable{
-  position:absolute;top:0;left:50%;width:3px;height:100%;
-  background:linear-gradient(180deg, #000, #222);
-  border-radius:2px;
-  transform:translateX(-50%);
-}
-.kb-plug{
-  position:absolute;top:-18px;left:50%;transform:translateX(-50%);
-  width:22px;height:14px;
-  background:linear-gradient(180deg, #2a2a2e, #0a0a0c);
-  border:1px solid #000;border-radius:3px;
-  font-family:var(--mono);font-size:5px;color:#6a6a70;
-  display:grid;place-items:center;letter-spacing:.05em;
-}
-
 /* =========================================================
    Keyboard layout: flex — plate (keys) + right column (knob + optional numpad)
    ========================================================= */
