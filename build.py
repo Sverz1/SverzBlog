@@ -313,11 +313,22 @@ def main():
             print(f"      MISSING: {m}")
 
     # Bust the browser cache on every rebuild — rewrite ?v=... in index.html
-    # to a hash of data.js so the browser never serves a stale copy.
+    # to a hash that covers ALL versioned assets, not just data.js. Previously
+    # we hashed only data.js, so editing sverz.css or any *.js without touching
+    # markdown left users serving the cached old file forever.
     import hashlib
     idx = DST / "index.html"
     if idx.exists():
-        ver = hashlib.md5(js.encode("utf-8")).hexdigest()[:8]
+        hasher = hashlib.md5()
+        # Hash every asset referenced with ?v= in index.html, in a deterministic
+        # order. Anything new added to assets/ that index.html links with ?v=
+        # is picked up automatically.
+        assets_dir = DST / "assets"
+        for name in sorted(p.name for p in assets_dir.glob("*") if p.is_file()):
+            hasher.update(name.encode("utf-8"))
+            hasher.update(b"\0")
+            hasher.update((assets_dir / name).read_bytes())
+        ver = hasher.hexdigest()[:8]
         html = idx.read_text(encoding="utf-8")
         new_html = re.sub(r"\?v=[A-Za-z0-9]+", f"?v={ver}", html)
         if new_html != html:
